@@ -147,13 +147,10 @@
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: 0 40px; height: var(--nav-height);
             display: flex; align-items: center;
-            transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-        }
-        .nav.nav-hidden { transform: translateY(-100%); }
-        .nav.scrolled {
             background: rgba(10,10,10,0.92);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             box-shadow: 0 1px 0 var(--border);
+            transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
         }
         .nav-inner {
             max-width: var(--max-width); margin: 0 auto; width: 100%;
@@ -1341,17 +1338,6 @@
         // ========================================
         const nav = document.getElementById('nav');
         let lastScrollY = 0;
-        const isMobile = () => window.innerWidth <= 900;
-        window.addEventListener('scroll', () => {
-            const currentY = window.scrollY;
-            nav.classList.toggle('scrolled', currentY > 60);
-            if (isMobile() && currentY > 80) {
-                nav.classList.toggle('nav-hidden', currentY > lastScrollY);
-            } else {
-                nav.classList.remove('nav-hidden');
-            }
-            lastScrollY = currentY;
-        }, { passive: true });
 
         // ========================================
         // MOBILE MENU
