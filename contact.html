@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Kalen Mxrcus</title>
+    <meta name="description" content="Get in touch with Kalen Mxrcus for booking, press, collaborations, and general inquiries.">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-surface: #161616;
+            --bg-surface-alt: #1a1a1a;
+            --border: #2a2a2a;
+            --cream: #e8dcc8;
+            --gold: #c9a84c;
+            --gold-bright: #dbb85e;
+            --white: #f5f0eb;
+            --white-dim: rgba(245, 240, 235, 0.6);
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-condensed: 'Barlow Condensed', sans-serif;
+            --font-body: 'Barlow', sans-serif;
+            --max-width: 1200px;
+            --nav-height: 80px;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background: var(--bg-primary);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        .btn-primary {
+            display: inline-block;
+            font-family: var(--font-condensed);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #0a0a0a;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #c9a84c 0%, #dbb85e 50%, #c9a84c 100%);
+            box-shadow: 0 0 20px rgba(201,168,76,0.4), 0 0 40px rgba(201,168,76,0.15), inset 0 1px 0 rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #dbb85e 0%, #e8c96a 50%, #dbb85e 100%);
+            box-shadow: 0 0 30px rgba(201,168,76,0.6), 0 0 60px rgba(201,168,76,0.25), inset 0 1px 0 rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .section-label {
+            font-family: var(--font-condensed);
+            font-weight: 600; font-size: 14px;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 8vw, 80px);
+            color: var(--white); line-height: 0.95; margin-bottom: 48px;
+        }
+        section { padding: 96px 40px; }
+        .container { max-width: var(--max-width); margin: 0 auto; }
+
+        /* Navigation */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 0 40px; height: var(--nav-height);
+            display: flex; align-items: center;
+            background: rgba(10,10,10,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .nav-inner {
+            max-width: var(--max-width); margin: 0 auto; width: 100%;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo img { height: 40px; width: auto; }
+        .nav-links {
+            list-style: none; display: flex; gap: 32px;
+        }
+        .nav-links a {
+            font-family: var(--font-condensed); font-weight: 500;
+            font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--white-dim); transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 8px; z-index: 1001;
+        }
+        .nav-hamburger span {
+            width: 24px; height: 2px; background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-primary); z-index: 999;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 32px;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .mobile-menu.active { opacity: 1; pointer-events: all; }
+        .mobile-nav-link {
+            font-family: var(--font-display); font-size: 48px;
+            color: var(--white); transition: color 0.3s ease;
+        }
+        .mobile-nav-link:hover { color: var(--gold); }
+        .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+        .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        /* Contact page hero */
+        .contact-hero {
+            padding-top: calc(var(--nav-height) + 64px);
+            padding-bottom: 0;
+        }
+
+        /* Contact grid */
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start;
+        }
+        .contact-info-block { margin-bottom: 28px; }
+        .contact-info-block h3 {
+            font-family: var(--font-condensed); font-weight: 600; font-size: 14px;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 8px;
+        }
+        .contact-info-block a,
+        .contact-info-block p { font-size: 16px; color: var(--cream); transition: color 0.3s ease; }
+        .contact-info-block a:hover { color: var(--gold); }
+        .contact-socials { display: flex; gap: 20px; margin-top: 8px; }
+        .contact-socials a { color: var(--white-dim); transition: color 0.3s ease; }
+        .contact-socials a:hover { color: var(--gold); }
+        .contact-socials svg { width: 22px; height: 22px; }
+        .contact-form { display: flex; flex-direction: column; gap: 16px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            font-family: var(--font-body); font-weight: 300; font-size: 15px;
+            background: var(--bg-surface); border: 1px solid var(--border);
+            color: var(--cream); padding: 14px 16px; width: 100%;
+            outline: none; transition: border-color 0.3s ease;
+            -webkit-appearance: none; appearance: none; border-radius: 0;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { color: var(--white-dim); }
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus { border-color: var(--gold); }
+        .contact-form textarea { resize: vertical; min-height: 120px; }
+        .select-wrapper { position: relative; }
+        .select-wrapper::after {
+            content: ''; position: absolute; right: 16px; top: 50%;
+            transform: translateY(-50%);
+            width: 0; height: 0;
+            border-left: 5px solid transparent; border-right: 5px solid transparent;
+            border-top: 6px solid var(--gold); pointer-events: none;
+        }
+        .contact-form select { cursor: pointer; color: var(--white-dim); padding-right: 40px; }
+        .contact-form select option { background: var(--bg-surface); color: var(--cream); }
+        .form-submit { align-self: flex-start; }
+        .contact-form-thanks {
+            display: none; text-align: center; padding: 48px 20px;
+        }
+        .contact-form-thanks p {
+            font-family: var(--font-condensed); font-size: 22px;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+            margin-bottom: 8px;
+        }
+        .contact-form-thanks span { font-size: 15px; color: var(--white-dim); }
+
+        /* Footer */
+        .footer { padding: 32px 40px; border-top: 1px solid var(--border); }
+        .footer-inner {
+            max-width: var(--max-width); margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 16px;
+        }
+        .footer-brand {
+            font-family: var(--font-display); font-size: 24px;
+            color: var(--white); letter-spacing: 2px;
+        }
+        .footer-copy { font-size: 13px; color: var(--white-dim); }
+        .footer-credit { font-size: 13px; color: var(--white-dim); }
+        .footer-credit a { color: var(--gold); transition: color 0.3s ease; }
+        .footer-credit a:hover { color: var(--gold-bright); }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-links, .nav-cta { display: none; }
+            .nav-hamburger { display: flex; }
+            section { padding: 72px 20px; }
+            .nav { padding: 0 20px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .contact-hero { padding-top: calc(var(--nav-height) + 40px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Kalen Mxrcus Home">
+                <img src="logo.png" alt="Kalen Mxrcus Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#music">Music</a></li>
+                <li><a href="index.html#videos">Videos</a></li>
+                <li><a href="index.html#shows">Shows</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="index.html#booking" class="btn-primary nav-cta">Book a Show</a>
+            <div class="nav-hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#music" class="mobile-nav-link">Music</a>
+        <a href="index.html#videos" class="mobile-nav-link">Videos</a>
+        <a href="index.html#shows" class="mobile-nav-link">Shows</a>
+        <a href="index.html#about" class="mobile-nav-link">About</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <a href="index.html#booking" class="btn-secondary mobile-cta" style="display: inline-block; font-family: var(--font-condensed); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 12px 32px; border: 1.5px solid var(--gold); border-radius: 50px; background: transparent;">Book a Show</a>
+    </div>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <p class="section-label reveal">Get in Touch</p>
+                <h2 class="section-title reveal">Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <div class="contact-info-block">
+                            <h3>Booking &amp; General</h3>
+                            <a href="mailto:kalenmxrcusmusic@gmail.com">kalenmxrcusmusic@gmail.com</a>
+                        </div>
+                        <div class="contact-info-block">
+                            <h3>Phone</h3>
+                            <a href="tel:2179942932">(217) 994-2932</a>
+                        </div>
+                        <div class="contact-info-block">
+                            <h3>Location</h3>
+                            <p>Altamont, IL</p>
+                        </div>
+                        <div class="contact-info-block">
+                            <h3>Follow</h3>
+                            <div class="contact-socials">
+                                <a href="https://www.instagram.com/kalenmxrcus/" target="_blank" rel="noopener" aria-label="Instagram">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                </a>
+                                <a href="https://www.tiktok.com/@kalenmxrcus" target="_blank" rel="noopener" aria-label="TikTok">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52V6.8a4.84 4.84 0 01-1-.11z"/></svg>
+                                </a>
+                                <a href="https://www.facebook.com/kalen.reardon/" target="_blank" rel="noopener" aria-label="Facebook">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCj1fX2O8Nv_Ndy1amaLWozA" target="_blank" rel="noopener" aria-label="YouTube">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                </a>
+                                <a href="https://www.snapchat.com/@kalenr03" target="_blank" rel="noopener" aria-label="Snapchat">
+                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.922-.214.04-.012.06-.012.08-.012.16 0 .36.075.42.207.088.18.029.36-.12.51-.105.105-.241.18-.36.226-.208.1-.478.198-.66.281-.03.012-.06.018-.06.018l-.02.012c-.15.075-.27.147-.36.27-.06.09-.09.21-.06.36 0 .012 0 .03.012.048.088.3.288.585.51.84.36.405.78.766 1.23 1.05.27.165.57.3.81.39.09.045.15.075.21.105.391.18.54.39.449.6-.105.24-.495.39-.93.42-.105.012-.21.018-.33.018-.12 0-.24-.006-.39-.018-.195-.018-.42-.03-.66.006-.18.024-.39.09-.615.21-.196.105-.42.272-.69.48-.48.36-.93.546-1.38.546-.09 0-.195-.012-.296-.036-.36-.075-.656-.24-.96-.42-.39-.21-.84-.454-1.5-.454-.66 0-1.11.244-1.5.456-.3.18-.6.345-.96.42a1.496 1.496 0 01-.3.036c-.45 0-.9-.186-1.38-.546a4.727 4.727 0 00-.69-.48 3.021 3.021 0 00-.615-.21c-.24-.036-.465-.024-.66-.006-.15.012-.27.018-.39.018-.12 0-.225-.006-.33-.018-.435-.03-.825-.18-.93-.42-.09-.21.06-.42.45-.6.06-.03.12-.06.21-.105.24-.09.54-.225.81-.39.45-.284.87-.645 1.23-1.05.225-.255.42-.54.51-.84.012-.018.012-.036.012-.048.03-.15 0-.27-.06-.36-.09-.12-.21-.195-.36-.27l-.02-.012s-.03-.006-.06-.018c-.18-.083-.45-.18-.66-.281a1.498 1.498 0 01-.36-.226c-.15-.15-.21-.33-.12-.51.06-.132.26-.207.42-.207.02 0 .04 0 .08.012.264.094.624.214.922.214.199 0 .329-.045.404-.09a7.166 7.166 0 01-.033-.57c-.104-1.628-.23-3.654.3-4.847C7.447 1.069 10.804.793 11.794.793h.412z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contactFormWrapper">
+                        <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="01ae439f-beee-4300-b837-7c6f7a641f21">
+                            <input type="hidden" name="subject" value="New Inquiry from KalenMxrcus.com">
+                            <input type="hidden" name="from_name" value="KalenMxrcus.com Contact Form">
+                            <input type="hidden" name="redirect" value="https://kalen-mxrcus-website.vercel.app/contact.html?thanks=true">
+                            <input type="checkbox" name="botcheck" style="display: none;">
+                            <div class="form-row">
+                                <input type="text" name="name" placeholder="Name" required>
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                            <input type="tel" name="phone" placeholder="Phone Number">
+                            <div class="select-wrapper">
+                                <select name="inquiry" id="inquiryType">
+                                    <option value="" disabled selected>Type of Inquiry</option>
+                                    <option value="Book a Show">Book a Show</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Press / Media">Press / Media</option>
+                                    <option value="Collaboration">Collaboration</option>
+                                </select>
+                            </div>
+                            <input type="text" name="eventDate" placeholder="Event Date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+                            <textarea name="message" placeholder="Message" rows="4"></textarea>
+                            <div class="form-submit">
+                                <button type="submit" class="btn-primary" id="contactBtn">Send Message</button>
+                            </div>
+                        </form>
+                        <div class="contact-form-thanks" id="contactThanks">
+                            <p>Message sent!</p>
+                            <span>Kalen will get back to you soon.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">KALEN MXRCUS</div>
+            <div class="footer-copy">&copy; 2026 Kalen Mxrcus. All Rights Reserved.</div>
+            <div class="footer-credit">Website by <a href="https://www.growwithmomentum.co/" target="_blank" rel="noopener">Momentum</a></div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.mobile-nav-link, .mobile-cta').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Show thank you message if redirected back after form submission
+        if (window.location.search.includes('thanks=true')) {
+            const form = document.getElementById('contactForm');
+            if (form) form.style.display = 'none';
+            document.getElementById('contactThanks').style.display = 'block';
+            history.replaceState(null, '', window.location.pathname);
+        }
+    </script>
+</body>
+</html>

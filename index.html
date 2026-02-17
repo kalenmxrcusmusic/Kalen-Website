@@ -851,7 +851,7 @@
                 <li><a href="#videos">Videos</a></li>
                 <li><a href="#shows">Shows</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <a href="#booking" class="btn-primary nav-cta">Book a Show</a>
             <div class="nav-hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
@@ -869,7 +869,7 @@
         <a href="#shows" class="mobile-nav-link">Shows</a>
         <a href="#about" class="mobile-nav-link">About</a>
         <a href="#gallery" class="mobile-nav-link">Gallery</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
         <a href="#booking" class="btn-secondary mobile-cta">Book a Show</a>
     </div>
 
@@ -1073,38 +1073,22 @@
                             </div>
                             <div class="booking-contact-item">
                                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                                <a href="mailto:kalenreardon03@icloud.com">kalenreardon03@icloud.com</a>
+                                <a href="mailto:kalenmxrcusmusic@gmail.com">kalenmxrcusmusic@gmail.com</a>
                             </div>
                         </div>
                     </div>
                     <div class="pricing-cards reveal">
                         <div class="pricing-card">
-                            <div class="pricing-card-label">Standard</div>
-                            <div class="pricing-card-title">2 Hour Show</div>
-                            <div class="pricing-card-subtitle">Perfect for bar nights, breweries &amp; small events</div>
-                            <div class="pricing-card-price">Contact</div>
+                            <div class="pricing-card-label">Booking</div>
+                            <div class="pricing-card-title">Contact for Details</div>
+                            <div class="pricing-card-subtitle">Every event is different — reach out to discuss your show</div>
                             <ul class="pricing-features">
-                                <li>2 hours of live performance</li>
+                                <li>Flexible show lengths tailored to your event</li>
                                 <li>Mix of originals &amp; covers</li>
-                                <li>Custom setlist available</li>
-                                <li>Professional sound ready</li>
-                            </ul>
-                            <!-- STRIPE: Replace href="#contact" with Stripe Payment Link URL when ready -->
-                            <a href="#contact" class="btn-primary">Book Now</a>
-                        </div>
-                        <div class="pricing-card">
-                            <div class="pricing-card-label">Extended</div>
-                            <div class="pricing-card-title">3 Hour Show</div>
-                            <div class="pricing-card-subtitle">Ideal for festivals, private parties &amp; full events</div>
-                            <div class="pricing-card-price">Contact</div>
-                            <ul class="pricing-features">
-                                <li>3 hours of live performance</li>
-                                <li>Extended setlist with requests</li>
                                 <li>Custom setlist collaboration</li>
                                 <li>Professional sound ready</li>
                             </ul>
-                            <!-- STRIPE: Replace href="#contact" with Stripe Payment Link URL when ready -->
-                            <a href="#contact" class="btn-primary">Book Now</a>
+                            <a href="contact.html" class="btn-primary">Get in Touch</a>
                         </div>
                     </div>
                 </div>
@@ -1231,7 +1215,7 @@
                     <div class="contact-info reveal">
                         <div class="contact-info-block">
                             <h3>Booking &amp; General</h3>
-                            <a href="mailto:kalenreardon03@icloud.com">kalenreardon03@icloud.com</a>
+                            <a href="mailto:kalenmxrcusmusic@gmail.com">kalenmxrcusmusic@gmail.com</a>
                         </div>
                         <div class="contact-info-block">
                             <h3>Phone</h3>
@@ -1263,7 +1247,12 @@
                         </div>
                     </div>
                     <div id="contactFormWrapper">
-                        <form class="contact-form reveal" id="contactForm">
+                        <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="01ae439f-beee-4300-b837-7c6f7a641f21">
+                            <input type="hidden" name="subject" value="New Inquiry from KalenMxrcus.com">
+                            <input type="hidden" name="from_name" value="KalenMxrcus.com Contact Form">
+                            <input type="hidden" name="redirect" value="https://kalen-mxrcus-website.vercel.app/?thanks=true">
+                            <input type="checkbox" name="botcheck" style="display: none;">
                             <div class="form-row">
                                 <input type="text" name="name" placeholder="Name" required>
                                 <input type="email" name="email" placeholder="Email" required>
@@ -1272,8 +1261,7 @@
                             <div class="select-wrapper">
                                 <select name="inquiry" id="inquiryType">
                                     <option value="" disabled selected>Type of Inquiry</option>
-                                    <option value="Book a 2 Hour Show">Book a 2 Hour Show</option>
-                                    <option value="Book a 3 Hour Show">Book a 3 Hour Show</option>
+                                    <option value="Book a Show">Book a Show</option>
                                     <option value="General Inquiry">General Inquiry</option>
                                     <option value="Press / Media">Press / Media</option>
                                     <option value="Collaboration">Collaboration</option>
@@ -1282,7 +1270,7 @@
                             <input type="text" name="eventDate" placeholder="Event Date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
                             <textarea name="message" placeholder="Message" rows="4"></textarea>
                             <div class="form-submit">
-                                <button type="submit" class="btn-primary">Send Message</button>
+                                <button type="submit" class="btn-primary" id="contactBtn">Send Message</button>
                             </div>
                         </form>
                         <div class="contact-form-thanks" id="contactThanks">
@@ -1334,7 +1322,7 @@
         <div class="footer-inner">
             <div class="footer-brand">KALEN MXRCUS</div>
             <div class="footer-copy">&copy; 2026 Kalen Mxrcus. All Rights Reserved.</div>
-            <div class="footer-credit">Website by <a href="https://momentum-landing-ruby.vercel.app/" target="_blank" rel="noopener">Momentum</a></div>
+            <div class="footer-credit">Website by <a href="https://www.growwithmomentum.co/" target="_blank" rel="noopener">Momentum</a></div>
         </div>
     </footer>
 
@@ -1553,7 +1541,7 @@
                     console.error('Email signup error:', err);
                 }
             } else {
-                window.location.href = `mailto:kalenreardon03@icloud.com?subject=Email%20List%20Signup&body=Add%20me%20to%20the%20list:%20${encodeURIComponent(email)}`;
+                window.location.href = `mailto:kalenmxrcusmusic@gmail.com?subject=Email%20List%20Signup&body=Add%20me%20to%20the%20list:%20${encodeURIComponent(email)}`;
             }
 
             form.style.display = 'none';
@@ -1563,24 +1551,16 @@
         // ========================================
         // CONTACT FORM
         // ========================================
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const name = form.name.value;
-            const email = form.email.value;
-            const phone = form.phone.value;
-            const inquiry = form.inquiry.value;
-            const eventDate = form.eventDate.value;
-            const message = form.message.value;
-            const subject = encodeURIComponent(`Website Inquiry: ${inquiry || 'General'}`);
-            const body = encodeURIComponent(
-                `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nInquiry: ${inquiry || 'N/A'}\nEvent Date: ${eventDate || 'N/A'}\n\nMessage:\n${message}`
-            );
-            window.location.href = `mailto:kalenreardon03@icloud.com?subject=${subject}&body=${body}`;
-            // Show confirmation
-            form.style.display = 'none';
+        // Show thank you message if redirected back after form submission
+        if (window.location.search.includes('thanks=true')) {
+            const form = document.getElementById('contactForm');
+            if (form) form.style.display = 'none';
             document.getElementById('contactThanks').style.display = 'block';
-        });
+            // Scroll to contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            // Clean up URL
+            history.replaceState(null, '', window.location.pathname);
+        }
 
         // ========================================
         // GALLERY LIGHTBOX
